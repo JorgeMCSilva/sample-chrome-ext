@@ -1,0 +1,165 @@
+.quality-yellow {
+  color: #fdfd70;
+}
+
+.quality-red {
+  color: #e72626;
+}
+
+.quality-orange {
+  color: #f7c100;
+}
+
+.quality-green {
+  color: #01fd00;
+}
+
+.quality-gold {
+  color: #dcc784;
+}
+
+.quality-blue {
+  color: #7575fd;
+}
+
+.quality-socketed {
+  opacity: 0.5;
+  font-weight: 400;
+}
+
+.quality-white {
+  color: #fdfdfd;
+}
+
+.quality-empty {
+  opacity: 0.5;
+  color: #fdfdfd;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.flex-container {
+  margin-top: 10px;
+  display: flex;
+}
+
+body {
+  font-size: 14px;
+  user-select: none;
+  font-family: "Roboto", sans-serif;
+  width: 800px;
+  height:500px;
+}
+
+img {
+  max-height: 120px;
+}
+
+.icon img {
+  cursor: pointer;
+  border-radius: 50%;
+  transition: border-radius 0.5s;
+}
+
+.icon img:hover {
+  border-radius: 4px;
+  transition: border-radius 0.5s;
+}
+
+.container {
+  padding: 6px;
+  border-radius: 4px;
+  background-image: url("./assets/bg.jpg");
+  margin-left: 15px;
+
+  width: calc(100% - 33%);
+  min-width: 282px;
+  max-width: 600px;
+}
+
+.footer {
+  text-align: center;
+}
+
+.footer img {
+  margin-top: 12px;
+  height: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+}
+
+.column {
+  min-height: 90px;
+  max-height: 128px;
+
+  max-height: 128px;
+  min-width: 90px;
+
+  display: grid;
+  justify-items: center;
+  align-items: center;
+
+  background-color: rgba(28, 28, 44, 0.5);
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+
+h1 {
+  font-size: 0.9rem;
+  margin: 0;
+  margin-bottom: 0.25rem;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+
+  white-space: nowrap;
+
+  /* Position the tooltip */
+  position: absolute;
+
+  text-align: center;
+  z-index: 1;
+}
+
+.tooltip-text p {
+  margin: 0;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
+
+.active-players {
+  width: 100vw;
+  display: flex;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+
+.icon.active {
+  border: 2px solid red;
+}
