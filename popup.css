@@ -37,15 +37,17 @@
 }
 
 .app {
-  width: 100vw;
-  height: 100vh;
+  width: 500px;
+  height: 520px;
   overflow: hidden;
   flex-direction: column;
+  border: 1px solid red;
+
 }
 
 .flex-container {
-  margin-top: 10px;
   display: flex;
+  justify-content: center;
 }
 
 body {
@@ -75,11 +77,6 @@ img {
   padding: 6px;
   border-radius: 4px;
   background-image: url("./assets/bg.jpg");
-  margin-left: 15px;
-
-  width: calc(100% - 33%);
-  min-width: 282px;
-  max-width: 600px;
 }
 
 .footer {
@@ -150,16 +147,19 @@ h1 {
 }
 
 .active-players {
-  width: 100vw;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 6px;
+  height: 85px;
+  overflow-y: auto;
 }
 
 .icon {
-  display: flex;
-  flex-direction: column;
-  margin-left: 5px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
 }
 
-.icon.active {
-  border: 2px solid red;
+.icon.active > img{
+  border-radius: 4px;
 }

@@ -2,6 +2,7 @@
 
 <head>
   <link rel="stylesheet" href="popup.css">
+  <script src="libs/handlebars.js"></script>
 </head>
 
 <body>
@@ -15,225 +16,8 @@
       <div class="container">
         <div>
           <div class="grid">
-            <div class="column">
-              <div data-v-0c81f761="">
-                <div data-v-0c81f761="" class="tooltip"><img data-v-0c81f761=""
-                    src="https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Crystal_Sword.gif">
-                  <div data-v-0c81f761="" class="tooltip-text">
-                    <h1 data-v-0c81f761=""><span data-v-0c81f761="" class="quality-gold"> Grief<br
-                          data-v-0c81f761=""></span><span data-v-0c81f761="" class="quality-socketed"> Phase Blade
-                      </span></h1>
-                    <p data-v-0c81f761="" class=""> 35% Chance to cast level 15 Venom on striking </p>
-                    <p data-v-0c81f761="" class=""> +36% Increased Attack Speed </p>
-                    <p data-v-0c81f761="" class=""> Damage +355 </p>
-                    <p data-v-0c81f761="" class=""> Ignore Target's Defense </p>
-                    <p data-v-0c81f761="" class=""> -25% Target Defense </p>
-                    <p data-v-0c81f761="" class=""> +142% Damage to Demons (Based on Character Level) </p>
-                    <p data-v-0c81f761="" class=""> Adds 5-30 fire damage </p>
-                    <p data-v-0c81f761="" class=""> -22% to Enemy Poison Resistance </p>
-                    <p data-v-0c81f761="" class=""> 20% Deadly Strike </p>
-                    <p data-v-0c81f761="" class=""> Prevent Monster Heal </p>
-                    <p data-v-0c81f761="" class=""> +2 to Mana after each Kill </p>
-                    <p data-v-0c81f761="" class=""> +14 Life after each Kill </p>
-                    <p data-v-0c81f761="" class=""> Socketed (5) </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div data-v-0c81f761="">
-                <div data-v-0c81f761="" class="tooltip"><img data-v-0c81f761=""
-                    src="https://gamepedia.cursecdn.com/diablo_gamepedia/1/18/Avenger_Guard_%28Diablo_II%29.gif?version=51c15183df3fb25715be7c957fb6028d">
-                  <div data-v-0c81f761="" class="tooltip-text">
-                    <h1 data-v-0c81f761="">
-                      <span data-v-0c81f761="" class="quality-gold"> Arreat's Face Slayer Guard </span>
-                    </h1>
-                    <p data-v-0c81f761="" class=""> +2 to Combat Skills (Barbarian Only) </p>
-                    <p data-v-0c81f761="" class=""> +2 to Barbarian Skill Levels </p>
-                    <p data-v-0c81f761="" class=""> +30% Faster Hit Recovery </p>
-                    <p data-v-0c81f761="" class=""> 20% Bonus to Attack Rating </p>
-                    <p data-v-0c81f761="" class=""> 4% Life stolen per hit </p>
-                    <p data-v-0c81f761="" class=""> +198% Enhanced Defense </p>
-                    <p data-v-0c81f761="" class=""> +20 to Strength </p>
-                    <p data-v-0c81f761="" class=""> +20 to Dexterity </p>
-                    <p data-v-0c81f761="" class=""> All Resistances +30 </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div data-v-0c81f761="">
-                <div data-v-0c81f761="" class="tooltip"><img data-v-0c81f761=""
-                    src="https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/War_Axe_(Diablo_II).gif">
-                  <div data-v-0c81f761="" class="tooltip-text">
-                    <h1 data-v-0c81f761=""><span data-v-0c81f761="" class="quality-gold"> Doom<br
-                          data-v-0c81f761=""></span><span data-v-0c81f761="" class="quality-socketed"> Berserker Axe
-                      </span></h1>
-                    <p data-v-0c81f761="" class=""> 5% Chance to cast level 18 Volcano on striking </p>
-                    <p data-v-0c81f761="" class=""> Level 12 Holy Freeze Aura When Equipped </p>
-                    <p data-v-0c81f761="" class=""> +2 to All Skills </p>
-                    <p data-v-0c81f761="" class=""> +45% Increased Attack Speed </p>
-                    <p data-v-0c81f761="" class=""> +350% Enhanced Damage </p>
-                    <p data-v-0c81f761="" class=""> -43% to Enemy Cold Resistance </p>
-                    <p data-v-0c81f761="" class=""> 20% Deadly Strike </p>
-                    <p data-v-0c81f761="" class=""> 25% Chance of Open Wounds </p>
-                    <p data-v-0c81f761="" class=""> Prevent Monster Heal </p>
-                    <p data-v-0c81f761="" class=""> Freezes target +3 </p>
-                    <p data-v-0c81f761="" class=""> Requirements +-20% </p>
-                    <p data-v-0c81f761="" class=""> Socketed (5) </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div data-v-0c81f761="">
-                <div data-v-0c81f761="" class="tooltip"><img data-v-0c81f761=""
-                    src="https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Short_Staff_(Diablo_II).gif">
-                  <div data-v-0c81f761="" class="tooltip-text">
-                    <h1 data-v-0c81f761="">
-                      <span data-v-0c81f761="" class="quality-blue"> Short Staff of Teleportation </span>
-                    </h1>
-                    <p data-v-0c81f761="" class=""> Level 6 Teleport (52/52 Charges) </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div data-v-0c81f761="">
-                <div data-v-0c81f761="" class="tooltip"><img data-v-0c81f761=""
-                    src="https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Quilted_Armor_(Diablo_II).gif">
-                  <div data-v-0c81f761="" class="tooltip-text">
-                    <h1 data-v-0c81f761=""><span data-v-0c81f761="" class="quality-gold"> Chains of Honor<br
-                          data-v-0c81f761=""></span><span data-v-0c81f761="" class="quality-socketed"> Dusk Shroud
-                      </span></h1>
-                    <p data-v-0c81f761="" class=""> +2 to All Skills </p>
-                    <p data-v-0c81f761="" class=""> +200% Damage to Demons </p>
-                    <p data-v-0c81f761="" class=""> +100% Damage to Undead </p>
-                    <p data-v-0c81f761="" class=""> 8% Life stolen per hit </p>
-                    <p data-v-0c81f761="" class=""> +82% Enhanced Defense </p>
-                    <p data-v-0c81f761="" class=""> +20 to Strength </p>
-                    <p data-v-0c81f761="" class=""> Replenish Life +7 </p>
-                    <p data-v-0c81f761="" class=""> All Resistances +65 </p>
-                    <p data-v-0c81f761="" class=""> Damage Reduced by 8% </p>
-                    <p data-v-0c81f761="" class=""> 25% Better Chance of Getting Magic Items </p>
-                    <p data-v-0c81f761="" class=""> Socketed (4) </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div data-v-0c81f761="">
-                <div data-v-0c81f761="" class="quality-empty">secondary_right empty</div>
-              </div>
-            </div>
-            <div class="column">
-              <div data-v-0c81f761="">
-                <div data-v-0c81f761="" class="tooltip"><img data-v-0c81f761=""
-                    src="https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Laying_of_Hands_(Diablo_II).gif">
-                  <div data-v-0c81f761="" class="tooltip-text">
-                    <h1 data-v-0c81f761="">
-                      <span data-v-0c81f761="" class="quality-green"> Laying of Hands Bramble Mitts </span>
-                    </h1>
-                    <p data-v-0c81f761="" class=""> 10% Chance to cast level 3 Holy Bolt on striking </p>
-                    <p data-v-0c81f761="" class=""> +20% Increased Attack Speed </p>
-                    <p data-v-0c81f761="" class=""> +350% Damage to Demons </p>
-                    <p data-v-0c81f761="" class=""> +25 Defense </p>
-                    <p data-v-0c81f761="" class=""> Fire Resist +50% </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div data-v-0c81f761="">
-                <div data-v-0c81f761="" class="tooltip"><img data-v-0c81f761=""
-                    src="https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Sash_(Diablo_II).gif">
-                  <div data-v-0c81f761="" class="tooltip-text">
-                    <h1 data-v-0c81f761="">
-                      <span data-v-0c81f761="" class="quality-gold"> String of Ears Demonhide Sash </span>
-                    </h1>
-                    <p data-v-0c81f761="" class=""> 6% Life stolen per hit </p>
-                    <p data-v-0c81f761="" class=""> +169% Enhanced Defense </p>
-                    <p data-v-0c81f761="" class=""> +15 Defense </p>
-                    <p data-v-0c81f761="" class=""> Damage Reduced by 15% </p>
-                    <p data-v-0c81f761="" class=""> Magic Damage Reduced by 12 </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div data-v-0c81f761="">
-                <div data-v-0c81f761="" class="tooltip"><img data-v-0c81f761=""
-                    src="https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Greaves_(Diablo_II).gif">
-                  <div data-v-0c81f761="" class="tooltip-text">
-                    <h1 data-v-0c81f761="">
-                      <span data-v-0c81f761="" class="quality-gold"> Gore Rider War Boots </span>
-                    </h1>
-                    <p data-v-0c81f761="" class=""> +30% Faster Run/Walk </p>
-                    <p data-v-0c81f761="" class=""> 15% Chance of Crushing Blow </p>
-                    <p data-v-0c81f761="" class=""> 15% Deadly Strike </p>
-                    <p data-v-0c81f761="" class=""> 10% Chance of Open Wounds </p>
-                    <p data-v-0c81f761="" class=""> +168% Enhanced Defense </p>
-                    <p data-v-0c81f761="" class=""> +20 Maximum Stamina </p>
-                    <p data-v-0c81f761="" class=""> Requirements +-25% </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div data-v-0c81f761="">
-                <div data-v-0c81f761="" class="tooltip"><img data-v-0c81f761=""
-                    src="https://gamepedia.cursecdn.com/diablo_gamepedia/2/22/Ring_1_%28Diablo_II%29.gif?version=01a34f68a46881a4880237f28ac13e0a">
-                  <div data-v-0c81f761="" class="tooltip-text">
-                    <h1 data-v-0c81f761="">
-                      <span data-v-0c81f761="" class="quality-gold"> Raven Frost Ring </span>
-                    </h1>
-                    <p data-v-0c81f761="" class=""> +209 to Attack Rating </p>
-                    <p data-v-0c81f761="" class=""> Adds 15-45 cold damage </p>
-                    <p data-v-0c81f761="" class=""> +20 to Dexterity </p>
-                    <p data-v-0c81f761="" class=""> +40 to Mana </p>
-                    <p data-v-0c81f761="" class=""> Cold Absorb 20% </p>
-                    <p data-v-0c81f761="" class=""> Cannot Be Frozen </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div data-v-0c81f761="">
-                <div data-v-0c81f761="" class="tooltip"><img data-v-0c81f761=""
-                    src="https://gamepedia.cursecdn.com/diablo_gamepedia/8/88/Amulet_1_%28Diablo_II%29.gif?version=ed0ecc61220393404ea1557207cb03a2">
-                  <div data-v-0c81f761="" class="tooltip-text">
-                    <h1 data-v-0c81f761="">
-                      <span data-v-0c81f761="" class="quality-gold"> Highlord's Wrath Amulet </span>
-                    </h1>
-                    <p data-v-0c81f761="" class=""> +1 to All Skills </p>
-                    <p data-v-0c81f761="" class=""> +20% Increased Attack Speed </p>
-                    <p data-v-0c81f761="" class=""> Adds 1-30 lightning damage </p>
-                    <p data-v-0c81f761="" class=""> 28% Deadly Strike (Based on Character Level) </p>
-                    <p data-v-0c81f761="" class=""> Lightning Resist +35% </p>
-                    <p data-v-0c81f761="" class=""> Attacker Takes Lightning Damage of 15 </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div data-v-0c81f761="">
-                <div data-v-0c81f761="" class="tooltip"><img data-v-0c81f761=""
-                    src="https://gamepedia.cursecdn.com/diablo_gamepedia/2/22/Ring_1_%28Diablo_II%29.gif?version=01a34f68a46881a4880237f28ac13e0a">
-                  <div data-v-0c81f761="" class="tooltip-text">
-                    <h1 data-v-0c81f761="">
-                      <span data-v-0c81f761="" class="quality-gold"> Raven Frost Ring </span>
-                    </h1>
-                    <p data-v-0c81f761="" class=""> +249 to Attack Rating </p>
-                    <p data-v-0c81f761="" class=""> Adds 15-45 cold damage </p>
-                    <p data-v-0c81f761="" class=""> +18 to Dexterity </p>
-                    <p data-v-0c81f761="" class=""> +40 to Mana </p>
-                    <p data-v-0c81f761="" class=""> Cold Absorb 20% </p>
-                    <p data-v-0c81f761="" class=""> Cannot Be Frozen </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
+
           <div class="footer">
             <a target="_blank" href="https://diablo.run/MrLlamaSC/@">
               <img src="assets/dr_logo.png"></a>
@@ -244,12 +28,46 @@
 
   </div>
 
-  <template id="activeUser">
-    <div class="icon">
-      <img src="" />
-      <span class='player-name'></span>
+  <script id="tmpl-users" type="text/x-handlebars-template">
+    {{#each user}}
+    <div class="icon {{active isActive}}">
+      <img src="assets/icons/{{hero}}.png" />
+      <span class="player-name">{{user_name}}</span>
     </div>
-  </template>
+    {{/each}}
+ </script>
+
+  <script id="tmpl-item" type="text/x-handlebars-template">
+   <div class="column">
+    <div>
+      {{#if item}}
+      <div class="tooltip">
+        <img src="{{item.imageSrc}}" />
+        <div class="tooltip-text">
+          <h1>
+            {{#if item.runeword}}
+              <span class="quality-gold">
+                {{item.runeword}}
+                <br />
+              </span>
+            {{/if}}
+            <span class="quality-{{quality item.runeword item.quality}}">
+              {{name runeword item.base_name item.name}}
+            </span>
+          </h1>
+          {{#each item.properties as |property|}}
+          <p class="{{red property}}">
+            {{clean property}}
+          </p>
+          {{/each}}
+        </div>
+      </div>
+      {{^}}
+      <div class="quality-empty">{{ itemSlot }} empty</div>
+      {{/if}}
+    </div>
+  </div>
+ </script>
 
   <script src="popup.js"></script>
 </body>
