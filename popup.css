@@ -38,10 +38,9 @@
 
 .app {
   width: 500px;
-  height: 520px;
+  height: 530px;
   overflow: hidden;
   flex-direction: column;
-  border: 1px solid red;
 
 }
 
@@ -54,8 +53,9 @@ body {
   font-size: 14px;
   user-select: none;
   font-family: "Roboto", sans-serif;
-  width: 800px;
+  width: 500px;
   height:500px;
+  position: relative; /* for the loading in absolute*/
 }
 
 img {
@@ -138,6 +138,18 @@ h1 {
   z-index: 1;
 }
 
+.tooltip-text.top {
+  bottom: 35px;
+}
+
+.tooltip-text.left {
+  right: 0;
+ }
+
+ .tooltip-text.center {
+  left: -100px;
+ }
+
 .tooltip-text p {
   margin: 0;
 }
@@ -162,4 +174,21 @@ h1 {
 
 .icon.active > img{
   border-radius: 4px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 40%;
+  right: 50px;
+}
+
+.loading > img {
+  background-image: url("./assets/bg.jpg");
+}
+
+svg {
+  justify-self: center;
+  width: 100%;
 }

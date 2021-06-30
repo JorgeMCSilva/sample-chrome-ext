@@ -1,19 +1,20 @@
 const globals = {
     api: 'https://api.diablo.run/',
     characterItemSlots: [
-        'primary_left',
-        'head',
-        'primary_right',
-        'secondary_left',
-        'body_armor',
-        'secondary_right',
-        'gloves',
-        'belt',
-        'boots',
-        'ring_left',
-        'amulet',
-        'ring_right',
+        { key: 'primary_left', pos: ''},
+        { key: 'head', pos: ''},
+        { key: 'primary_right', pos: 'left'},
+        { key: 'secondary_left', pos: ''},
+        { key: 'body_armor', pos: ''},
+        { key: 'secondary_right', pos: 'left'},
+        { key: 'gloves', pos: 'top'},
+        { key: 'belt', pos: 'top'},
+        { key: 'boots', pos: 'top left'},
+        { key: 'ring_left', pos: 'top'},
+        { key: 'amulet', pos: 'top center'},
+        { key: 'ring_right', pos: 'top left'},
     ],
+    // itemImages uses " rather than ' due to json like names rather than js
     itemImages: {
         "Axe": "https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Axe_(Diablo_II).gif",
         "Deathspade Axe": "https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Deathspade_(Diablo_II).gif",
@@ -790,33 +791,52 @@ const globals = {
         "Ber Rune": "https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Ber_Rune.png",
         "Jah Rune": "https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Jah_Rune.png",
         "Cham Rune": "https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Cham_Rune.png",
-        "Zod Rune": "https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Zod_Rune.png"
-    }
+        "Zod Rune": "https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Zod_Rune.png",
+    },
 };
 
+const engine = new liquidjs.Liquid();
 const $app = document.querySelector('.app');
 const $loading = document.querySelector('.loading');
 const $flexContainer = document.querySelector('.flex-container');
 const $activePlayers = document.querySelector('.active-players');
 const $grid = document.querySelector('.grid');
 
-const _tmplActiveUser = Handlebars.compile(document.querySelector('#tmpl-users').innerHTML);
-const _tmplItem = Handlebars.compile(document.querySelector('#tmpl-item').innerHTML);
+const _tmplActiveHeroes = document.querySelector('#tmpl-heroes').innerHTML;
+const _tmplItem = document.querySelector('#tmpl-item').innerHTML;
 let activePlayers = [];
+engine.registerFilter('active', isActive => isActive ? 'active' : '');
+engine.registerFilter('quality', (runeword, itemQuality) => runeword ? 'socketed' : itemQuality);
+engine.registerFilter('name', (runeword, baseName, itemName) => runeword ? baseName : itemName);
+engine.registerFilter('red', property => {
+    // extension encodes ÿc1 to some weird characters.
+    if (property.charCodeAt(0) === 255 && property.charCodeAt(1) === 99 && property.charCodeAt(2) === 49) {
+        return 'quality-red';
+    }
 
-Handlebars.registerHelper('active', isActive => isActive ? 'active' : '');
-Handlebars.registerHelper('quality', (runeword, itemQuality) => runeword ? 'socketed' : itemQuality);
-Handlebars.registerHelper('name', (runeword, baseName, itemName) => runeword ? baseName : itemName);
-Handlebars.registerHelper('red', property => property.includes('ÿc1') ? 'quality--red' : '');
-Handlebars.registerHelper('clean', property => property.replace(/^ÿc1/, ''));
+    return '';
+});
+engine.registerFilter('clean', property => {
+    // extension encodes ÿc1 to some weird characters.
+    if (property.charCodeAt(0) === 255 && property.charCodeAt(1) === 99 && property.charCodeAt(2) === 49) {
+        return property.substr(3);
+    }
+
+    return property;
+});
 
 function setLoading(isLoading) {
     $app.style.display = isLoading ? 'none' : 'flex';
-    $loading.style.display = isLoading ? 'block' : 'none';
+    $loading.style.display = isLoading ? 'flex' : 'none';
 };
 
-function buildActiveUsers(activeUsers) {
-    const userHtml = _tmplActiveUser({user: activeUsers});
+function setLoadingItems(isLoading) {
+    $flexContainer.style.display = isLoading ? 'none' : 'flex';
+    $loading.style.display = isLoading ? 'flex' : 'none';
+};
+
+async function buildActiveUsers(activeUsers) {
+    const userHtml = await engine.parseAndRender(_tmplActiveHeroes, {users: activeUsers});
     $activePlayers.innerHTML = userHtml;
 
     setLoading(false);
@@ -824,9 +844,7 @@ function buildActiveUsers(activeUsers) {
 
 function clearActivePlayer() {
     const index = activePlayers.findIndex(x => x.isActive);
-    const $activeToClear = document.querySelector(`.icon:nth-child(${
-        index + 1
-    })`); // 1 based
+    const $activeToClear = document.querySelector(`.icon:nth-child(${index + 1})`); // 1 based
     if ($activeToClear) {
         $activeToClear.className = 'icon';
         activePlayers[index].isActive = false;
@@ -834,20 +852,17 @@ function clearActivePlayer() {
 }
 
 async function loadArmoryFor(player) {
-    const rest = await fetch(`${
-        globals.api
-    }snapshots/users/${
-        player.user_name
-    }`);
+    const rest = await fetch(`${globals.api}snapshots/users/${player.user_name}`);
 
     const armoryData = await rest.json();
     const equipItems = armoryData.items.filter(x => x.container === 'character');
     let itemHtml = '';
 
-    globals.characterItemSlots.forEach(slot => {
-        const item = equipItems.find(item => item.slot === slot);
+    for (const slot of globals.characterItemSlots) {
+        const item = equipItems.find(item => item.slot === slot.key);
 
         if (item) {
+            item.pos = slot.pos;
             item.imageSrc = globals.itemImages[item.base_name];
             item.properties = JSON.parse(item.properties);
             const runewordMatch = item.name.match(/^(.*?) \[(.*?)\]$/);
@@ -856,14 +871,16 @@ async function loadArmoryFor(player) {
                 item.runeword = runewordMatch[2];
             }
         }
-        itemHtml += _tmplItem({item: item});
-    });
+        itemHtml += await engine.parseAndRender(_tmplItem, {item: item});
+    }
 
     $grid.innerHTML = itemHtml;
-    $flexContainer.style.display = 'flex';
+    setLoadingItems(false);
 }
 
 function onActivatePlayer(index, $player) {
+    setLoadingItems(true);
+
     clearActivePlayer();
     $player.className = 'icon active';
     activePlayers[index].isActive = true;
@@ -880,7 +897,7 @@ async function run() {
     }active-users`);
     activePlayers = await res.json();
 
-    buildActiveUsers(activePlayers);
+    await buildActiveUsers(activePlayers);
 
     const $activePlayers = document.querySelectorAll('.icon');
     $activePlayers.forEach(($player, index) => {

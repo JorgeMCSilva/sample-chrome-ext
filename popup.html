@@ -2,11 +2,31 @@
 
 <head>
   <link rel="stylesheet" href="popup.css">
-  <script src="libs/handlebars.js"></script>
+  <script src="libs/liquid.browser.min.js"></script>
 </head>
 
 <body>
-  <div class="loading">this is loading / refreshing etc</div>
+  <div class="loading">
+    <img src="assets/dr_logo.png" />
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+    <rect x="0" y="10" width="4" height="10" fill="#333" opacity="0.2">
+      <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0s" dur="0.6s" repeatCount="indefinite" />
+      <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0s" dur="0.6s" repeatCount="indefinite" />
+      <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0s" dur="0.6s" repeatCount="indefinite" />
+    </rect>
+    <rect x="8" y="10" width="4" height="10" fill="#333"  opacity="0.2">
+      <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+      <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+      <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+    </rect>
+    <rect x="16" y="10" width="4" height="10" fill="#333"  opacity="0.2">
+      <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+      <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+      <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+    </rect>
+  </svg>
+  </div>
 
   <div class="app">
     <div class="active-players">
@@ -28,16 +48,48 @@
 
   </div>
 
-  <script id="tmpl-users" type="text/x-handlebars-template">
-    {{#each user}}
-    <div class="icon {{active isActive}}">
-      <img src="assets/icons/{{hero}}.png" />
-      <span class="player-name">{{user_name}}</span>
-    </div>
-    {{/each}}
- </script>
+  <script id="tmpl-heroes" type="text/template">
+    {% for user in users %}
+      <div class="icon {{user.isActive | active}}">
+        <img src="assets/icons/{{user.hero}}.png" />
+        <span class="player-name">{{user.user_name}}</span>
+      </div>
+    {% endfor %}
+  </script>
 
-  <script id="tmpl-item" type="text/x-handlebars-template">
+  <script id="tmpl-item" type="text/template">
+    <div class="column">
+     <div>
+       {% if item %}
+       <div class="tooltip">
+         <img src="{{ item.imageSrc }}" />
+         <div class="tooltip-text {{ item.pos }}">
+           <h1>
+             {% if item.runeword %}
+               <span class="quality-gold">
+                 {{item.runeword}}
+                 <br />
+               </span>
+               {% endif %}
+             <span class="quality-{{ item.runeword | quality: item.quality }}">
+               {{ item.runeword | name: item.base_name, item.name}}
+             </span>
+           </h1>
+           {% for property in item.properties %}
+           <p class="{{ property | red }}">
+             {{ property | clean }}
+           </p>
+           {% endfor %}
+         </div>
+       </div>
+       {% else %}
+       <div class="quality-empty">{{ itemSlot }} empty</div>
+       {% endif %}
+     </div>
+   </div>
+  </script>
+
+  <script id="tmpl-item2" type="text/x-handlebars-template">
    <div class="column">
     <div>
       {{#if item}}
