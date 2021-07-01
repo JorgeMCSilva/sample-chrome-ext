@@ -56,6 +56,8 @@ body {
   width: 500px;
   height:500px;
   position: relative; /* for the loading in absolute*/
+  background-image: url("./assets/bg.jpg");
+  background-repeat: repeat;
 }
 
 img {
@@ -76,7 +78,6 @@ img {
 .container {
   padding: 6px;
   border-radius: 4px;
-  background-image: url("./assets/bg.jpg");
 }
 
 .footer {
@@ -170,6 +171,8 @@ h1 {
   display: grid;
   justify-items: center;
   align-items: center;
+  color: grey;
+  font-weight: bold;
 }
 
 .icon.active > img{
@@ -191,4 +194,13 @@ h1 {
 svg {
   justify-self: center;
   width: 100%;
+}
+
+.refresh {
+  order: 1;
+  cursor: pointer;
+}
+
+.refresh > svg {
+  fill: grey;
 }

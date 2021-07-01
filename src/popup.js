@@ -2,10 +2,10 @@ const globals = {
     api: 'https://api.diablo.run/',
     characterItemSlots: [
         { key: 'primary_left', pos: ''},
-        { key: 'head', pos: ''},
+        { key: 'head', pos: 'center'},
         { key: 'primary_right', pos: 'left'},
         { key: 'secondary_left', pos: ''},
-        { key: 'body_armor', pos: ''},
+        { key: 'body_armor', pos: 'center'},
         { key: 'secondary_right', pos: 'left'},
         { key: 'gloves', pos: 'top'},
         { key: 'belt', pos: 'top'},
@@ -801,6 +801,7 @@ const $loading = document.querySelector('.loading');
 const $flexContainer = document.querySelector('.flex-container');
 const $activePlayers = document.querySelector('.active-players');
 const $grid = document.querySelector('.grid');
+const $refresh = document.querySelector('.refresh');
 
 const _tmplActiveHeroes = document.querySelector('#tmpl-heroes').innerHTML;
 const _tmplItem = document.querySelector('#tmpl-item').innerHTML;
@@ -905,12 +906,14 @@ async function run() {
             onActivatePlayer(index, $player);
         });
     });
+
+    $refresh.addEventListener('click', () => {
+        const activeUser = activePlayers.find(player => player.isActive);
+        if (activeUser) {
+            setLoadingItems(true);
+            loadArmoryFor(activeUser);
+        }
+    });
 }
 
 run();
-
-// todo:
-// timer interval refresh active players
-// check if clicked armory not in active players => hide
-// loading of the extension
-// loading of armory
