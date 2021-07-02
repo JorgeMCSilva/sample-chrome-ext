@@ -139,6 +139,14 @@ h1 {
   z-index: 1;
 }
 
+.tooltip-text.middle {
+  top: -14px;
+}
+
+.tooltip-text.right {
+  left: 0;
+}
+
 .tooltip-text.top {
   bottom: 35px;
 }
@@ -161,10 +169,35 @@ h1 {
 
 .active-players {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 6px;
   height: 85px;
   overflow-y: auto;
+  min-width: 465px;
+  max-width: 465px;
+}
+
+.active-players.table-mode {
+  height: 140px;
+}
+
+.active-players.table-mode.expanded {
+  height: 300px;
+}
+
+.players-container {
+  display: flex;
+}
+
+.view-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.view-options svg {
+  fill: grey;
 }
 
 .icon {
@@ -203,4 +236,74 @@ svg {
 
 .refresh > svg {
   fill: grey;
+}
+
+.app {
+  border: 1px solid red;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 1px 0px 0px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.row:not(:last-child) {
+  margin-bottom: 3px;
+}
+
+.cell:first-child {
+  margin-left: 3px;
+}
+
+.row:hover {
+  background-color: #343534;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cell {
+  display: flex;
+  font-size: 12px;
+}
+
+.cell:not(:last-child) {
+  margin-right: 5px;
+}
+
+.cell > img {
+  width: 40px;
+}
+
+.cell span {
+  color: white;
+  margin-right: 5px;
+}
+
+.cell div {
+  color: white;
+  margin-right: 5px;
+}
+.cell > div.player-name {
+  width: 90px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cell > div.act {
+  width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.row.active {
+  font-weight: bold;
 }

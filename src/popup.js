@@ -1,18 +1,46 @@
 const globals = {
     api: 'https://api.diablo.run/',
     characterItemSlots: [
-        { key: 'primary_left', pos: ''},
-        { key: 'head', pos: 'center'},
-        { key: 'primary_right', pos: 'left'},
-        { key: 'secondary_left', pos: ''},
-        { key: 'body_armor', pos: 'center'},
-        { key: 'secondary_right', pos: 'left'},
-        { key: 'gloves', pos: 'top'},
-        { key: 'belt', pos: 'top'},
-        { key: 'boots', pos: 'top left'},
-        { key: 'ring_left', pos: 'top'},
-        { key: 'amulet', pos: 'top center'},
-        { key: 'ring_right', pos: 'top left'},
+        {
+            key: 'primary_left',
+            pos: ''
+        },
+        {
+            key: 'head',
+            pos: 'center'
+        },
+        {
+            key: 'primary_right',
+            pos: 'left'
+        },
+        {
+            key: 'secondary_left',
+            pos: ''
+        }, {
+            key: 'body_armor',
+            pos: 'center'
+        }, {
+            key: 'secondary_right',
+            pos: 'left'
+        }, {
+            key: 'gloves',
+            pos: 'top'
+        }, {
+            key: 'belt',
+            pos: 'top'
+        }, {
+            key: 'boots',
+            pos: 'top left'
+        }, {
+            key: 'ring_left',
+            pos: 'top'
+        }, {
+            key: 'amulet',
+            pos: 'top center'
+        }, {
+            key: 'ring_right',
+            pos: 'top left'
+        },
     ],
     // itemImages uses " rather than ' due to json like names rather than js
     itemImages: {
@@ -791,8 +819,142 @@ const globals = {
         "Ber Rune": "https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Ber_Rune.png",
         "Jah Rune": "https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Jah_Rune.png",
         "Cham Rune": "https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Cham_Rune.png",
-        "Zod Rune": "https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Zod_Rune.png",
+        "Zod Rune": "https://s3.eu-central-1.amazonaws.com/d2.leede.ee/static/item-images/Zod_Rune.png"
     },
+    areas: {
+        1: 'Act 1 - Rogue Encampment',
+        2: 'Act 1 - Blood Moor',
+        3: 'Act 1 - Cold Plains',
+        4: 'Act 1 - Stony Field',
+        5: 'Act 1 - Dark Wood',
+        6: 'Act 1 - Black Marsh',
+        7: 'Act 1 - Tamoe Highland',
+        8: 'Act 1 - Den of Evil',
+        9: 'Act 1 - Cave (1)',
+        10: 'Act 1 - Underground Passage (1)',
+        11: 'Act 1 - Hole (1)',
+        12: 'Act 1 - Pit (1)',
+        13: 'Act 1 - Cave (2)',
+        14: 'Act 1 - Underground Passage (2)',
+        15: 'Act 1 - Hole (2)',
+        16: 'Act 1 - Pit (2)',
+        17: 'Act 1 - Burial Grounds',
+        18: 'Act 1 - Crypt',
+        19: 'Act 1 - Mausoleum',
+        20: 'Act 1 - Forgotten Tower',
+        21: 'Act 1 - Tower Cellar (1)',
+        22: 'Act 1 - Tower Cellar (2)',
+        23: 'Act 1 - Tower Cellar (3)',
+        24: 'Act 1 - Tower Cellar (4)',
+        25: 'Act 1 - Tower Cellar (5)',
+        26: 'Act 1 - Monastery Gate',
+        27: 'Act 1 - Outer Cloister',
+        28: 'Act 1 - Barracks',
+        29: 'Act 1 - Jail (1)',
+        30: 'Act 1 - Jail (2)',
+        31: 'Act 1 - Jail (3)',
+        32: 'Act 1 - Inner Cloister',
+        33: 'Act 1 - Cathedral',
+        34: 'Act 1 - Catacombs (1)',
+        35: 'Act 1 - Catacombs (2)',
+        36: 'Act 1 - Catacombs (3)',
+        37: 'Act 1 - Catacombs (4)',
+        38: 'Act 1 - Tristram',
+        39: 'Act 1 - Secret Cow Level',
+        40: 'Act 2 - Lut Gholein',
+        41: 'Act 2 - Rocky Waste',
+        42: 'Act 2 - Dry Hills',
+        43: 'Act 2 - Far Oasis',
+        44: 'Act 2 - Lost City',
+        45: 'Act 2 - Valley of Snakes',
+        46: 'Act 2 - Canyon of the Magi',
+        47: 'Act 2 - Sewers (1)',
+        48: 'Act 2 - Sewers (2)',
+        49: 'Act 2 - Sewers (3)',
+        50: 'Act 2 - Harem (1)',
+        51: 'Act 2 - Harem (2)',
+        52: 'Act 2 - Palace Cellar (1)',
+        53: 'Act 2 - Palace Cellar (2)',
+        54: 'Act 2 - Palace Cellar (3)',
+        55: 'Act 2 - Stony Tomb (1)',
+        56: 'Act 2 - Halls of the Dead (1)',
+        57: 'Act 2 - Halls of the Dead (2)',
+        58: 'Act 2 - Claw Viper Temple (1)',
+        59: 'Act 2 - Stony Tomb (2)',
+        60: 'Act 2 - Halls of the Dead (3)',
+        61: 'Act 2 - Claw Viper Temple (2)',
+        62: 'Act 2 - Maggot Lair (1)',
+        63: 'Act 2 - Maggot Lair (2)',
+        64: 'Act 2 - Maggot Lair (3)',
+        65: 'Act 2 - Ancient Tunnels',
+        66: 'Act 2 - Tal Rasha\'s Tomb',
+        67: 'Act 2 - Tal Rasha\'s Tomb',
+        68: 'Act 2 - Tal Rasha\'s Tomb',
+        69: 'Act 2 - Tal Rasha\'s Tomb',
+        70: 'Act 2 - Tal Rasha\'s Tomb',
+        71: 'Act 2 - Tal Rasha\'s Tomb',
+        72: 'Act 2 - Tal Rasha\'s Tomb',
+        73: 'Act 2 - Duriel\'s Lair',
+        74: 'Act 2 - Arcane Sanctuary',
+        75: 'Act 3 - Kurast Docks',
+        76: 'Act 3 - Spider Forest',
+        77: 'Act 3 - Great Marsh',
+        78: 'Act 3 - Flayer Jungle',
+        79: 'Act 3 - Lower Kurast',
+        80: 'Act 3 - Kurast Bazaar',
+        81: 'Act 3 - Upper Kurast',
+        82: 'Act 3 - Kurast Causeway',
+        83: 'Act 3 - Travincal',
+        84: 'Act 3 - Spider Cave',
+        85: 'Act 3 - Spider Cavern',
+        86: 'Act 3 - Swampy Pit (1)',
+        87: 'Act 3 - Swampy Pit (2)',
+        88: 'Act 3 - Flayer Dungeon (1)',
+        89: 'Act 3 - Flayer Dungeon (2)',
+        90: 'Act 3 - Swampy Pit (3)',
+        91: 'Act 3 - Flayer Dungeon (3)',
+        92: 'Act 3 - Sewers (1)',
+        93: 'Act 3 - Sewers (2)',
+        94: 'Act 3 - Ruined Temple',
+        95: 'Act 3 - Disused Fane',
+        96: 'Act 3 - Forgotten Reliquary',
+        97: 'Act 3 - Forgotten Temple',
+        98: 'Act 3 - Ruined Fane',
+        99: 'Act 3 - Disused Reliquary',
+        100: 'Act 3 - Durance of Hate (1)',
+        101: 'Act 3 - Durance of Hate (2)',
+        102: 'Act 3 - Durance of Hate (3)',
+        103: 'Act 4 - Pandemonium Fortress',
+        104: 'Act 4 - Outer Steppes',
+        105: 'Act 4 - Plains of Despair',
+        106: 'Act 4 - City of the Damned',
+        107: 'Act 4 - River of Flame',
+        108: 'Act 4 - Chaos Sanctuary',
+        109: 'Act 5 - Harrogath',
+        110: 'Act 5 - Bloody Foothills',
+        111: 'Act 5 - Frigid Highlands',
+        112: 'Act 5 - Arreat Plateau',
+        113: 'Act 5 - Crystalline Passage (1)',
+        114: 'Act 5 - Cellar of Pity',
+        115: 'Act 5 - Crystalline Passage (2)',
+        116: 'Act 5 - Echo Chamber',
+        117: 'Act 5 - Tundra Wastelands',
+        118: 'Act 5 - Glacial Trail (1)',
+        119: 'Act 5 - Glacial Trail (2)',
+        120: 'Act 5 - Arreat Summit',
+        121: 'Act 5 - Nihlathaks Temple',
+        122: 'Act 5 - Halls of Anguish',
+        123: 'Act 5 - Halls of Death\'s Calling',
+        124: 'Act 5 - Halls of Vaught',
+        125: 'Act 5 - Hell1',
+        126: 'Act 5 - Hell2',
+        127: 'Act 5 - Hell3',
+        128: 'Act 5 - The Worldstone Keep (1)',
+        129: 'Act 5 - The Worldstone Keep (2)',
+        130: 'Act 5 - The Worldstone Keep (3)',
+        131: 'Act 5 - Throne of Destruction',
+        132: 'Act 5 - The Worldstone Chamber'
+    }
 };
 
 const engine = new liquidjs.Liquid();
@@ -802,29 +964,34 @@ const $flexContainer = document.querySelector('.flex-container');
 const $activePlayers = document.querySelector('.active-players');
 const $grid = document.querySelector('.grid');
 const $refresh = document.querySelector('.refresh');
+const $playerView = document.querySelector('.player-view');
+const $tableView = document.querySelector('.table-view');
+const $footer = document.querySelector('.footer');
+const $collapse = document.querySelector('.collapse');
+const $expand = document.querySelector('.expand');
 
 const _tmplActiveHeroes = document.querySelector('#tmpl-heroes').innerHTML;
+const _tmplActiveTable = document.querySelector('#tmpl-heroes-table').innerHTML;
 const _tmplItem = document.querySelector('#tmpl-item').innerHTML;
 let activePlayers = [];
 engine.registerFilter('active', isActive => isActive ? 'active' : '');
 engine.registerFilter('quality', (runeword, itemQuality) => runeword ? 'socketed' : itemQuality);
 engine.registerFilter('name', (runeword, baseName, itemName) => runeword ? baseName : itemName);
-engine.registerFilter('red', property => {
-    // extension encodes ÿc1 to some weird characters.
+engine.registerFilter('red', property => { // extension encodes ÿc1 to some weird characters.
     if (property.charCodeAt(0) === 255 && property.charCodeAt(1) === 99 && property.charCodeAt(2) === 49) {
         return 'quality-red';
     }
 
     return '';
 });
-engine.registerFilter('clean', property => {
-    // extension encodes ÿc1 to some weird characters.
+engine.registerFilter('clean', property => { // extension encodes ÿc1 to some weird characters.
     if (property.charCodeAt(0) === 255 && property.charCodeAt(1) === 99 && property.charCodeAt(2) === 49) {
         return property.substr(3);
     }
 
     return property;
 });
+engine.registerFilter('area', areaCode => globals.areas[areaCode]);
 
 function setLoading(isLoading) {
     $app.style.display = isLoading ? 'none' : 'flex';
@@ -836,24 +1003,55 @@ function setLoadingItems(isLoading) {
     $loading.style.display = isLoading ? 'flex' : 'none';
 };
 
-async function buildActiveUsers(activeUsers) {
+function bindHeroByTag(tag) {
+    const $activePlayers = document.querySelectorAll(tag);
+    $activePlayers.forEach(($player, index) => {
+        $player.addEventListener('click', () => {
+            onActivatePlayer(index, $player);
+        });
+    });
+}
+
+async function buildRunnersAsIcons(activeUsers) {
     const userHtml = await engine.parseAndRender(_tmplActiveHeroes, {users: activeUsers});
     $activePlayers.innerHTML = userHtml;
 
     setLoading(false);
+
+    bindHeroByTag('.icon');
+    $footer.style.display = 'block';
+    $activePlayers.classList.remove('table-mode');
+    $collapse.style.display = 'none';
+    $expand.style.display = 'none';
+    $activePlayers.classList.remove('expanded');
+}
+
+async function buildRunnersAsTable(activeUsers) {
+    const userHtml = await engine.parseAndRender(_tmplActiveTable, {users: activeUsers});
+    $activePlayers.innerHTML = userHtml;
+
+    setLoading(false);
+    bindHeroByTag('.row');
+    $footer.style.display = 'none';
+    $activePlayers.classList.add('table-mode');
+    $expand.style.display = 'block';
 }
 
 function clearActivePlayer() {
     const index = activePlayers.findIndex(x => x.isActive);
-    const $activeToClear = document.querySelector(`.icon:nth-child(${index + 1})`); // 1 based
+    const $activeToClear = document.querySelector(`.active`);
     if ($activeToClear) {
-        $activeToClear.className = 'icon';
+        $activeToClear.classList.remove('active');
         activePlayers[index].isActive = false;
     }
 }
 
 async function loadArmoryFor(player) {
-    const rest = await fetch(`${globals.api}snapshots/users/${player.user_name}`);
+    const rest = await fetch(`${
+        globals.api
+    }snapshots/users/${
+        player.user_name
+    }`);
 
     const armoryData = await rest.json();
     const equipItems = armoryData.items.filter(x => x.container === 'character');
@@ -883,29 +1081,26 @@ function onActivatePlayer(index, $player) {
     setLoadingItems(true);
 
     clearActivePlayer();
-    $player.className = 'icon active';
+    $player.classList.add('active');
     activePlayers[index].isActive = true;
 
     loadArmoryFor(activePlayers[index]);
+}
+
+async function getActivePlayers() {
+    const res = await fetch(`${
+        globals.api
+    }active-users`);
+    return await res.json();
 }
 
 async function run() {
     $flexContainer.style.display = 'none';
     setLoading(true);
 
-    const res = await fetch(`${
-        globals.api
-    }active-users`);
-    activePlayers = await res.json();
+    activePlayers = await getActivePlayers();
+    await buildRunnersAsIcons(activePlayers);
 
-    await buildActiveUsers(activePlayers);
-
-    const $activePlayers = document.querySelectorAll('.icon');
-    $activePlayers.forEach(($player, index) => {
-        $player.addEventListener('click', () => {
-            onActivatePlayer(index, $player);
-        });
-    });
 
     $refresh.addEventListener('click', () => {
         const activeUser = activePlayers.find(player => player.isActive);
@@ -913,6 +1108,28 @@ async function run() {
             setLoadingItems(true);
             loadArmoryFor(activeUser);
         }
+    });
+
+    $tableView.addEventListener('click', () => {
+        buildRunnersAsTable(activePlayers);
+        $activePlayers.className = 'active-players table';
+    });
+
+    $playerView.addEventListener('click', () => {
+        buildRunnersAsIcons(activePlayers);
+        $activePlayers.className = 'active-players';
+    });
+
+    $expand.addEventListener('click', () => {
+        $expand.style.display = 'none';
+        $collapse.style.display = 'block';
+        $activePlayers.classList.add('expanded');
+    });
+
+    $collapse.addEventListener('click', () => {
+        $expand.style.display = 'block';
+        $collapse.style.display = 'none';
+        $activePlayers.classList.remove('expanded');
     });
 }
 

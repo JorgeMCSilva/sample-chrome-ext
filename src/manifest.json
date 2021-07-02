@@ -1,12 +1,17 @@
 {
   "name": "DiabloRun Armory",
   "description": "Chromium plugin to allow users to get information on how their runners are doing",
-  "version": "1.1",
+  "version": "0.1",
   "manifest_version": 3,
   "permissions": [ ],
   "action": {
     "default_title": "DiabloRun Armory",
     "default_icon": "./assets/logo.png",
     "default_popup": "popup.html"
+  },
+  "icons": {
+	  "16": "./assets/logo.png",
+      "48": "./assets/logo.png",
+      "128": "./assets/logo.png"
   }
 }
